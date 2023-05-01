@@ -4,6 +4,12 @@
 			"name":"Calculate the value of the algebraic expression",
 			"page":"expr_calc/index.html",
 			"img":"expr_calc.jpeg"
+		},
+		{
+			"name":"Calculate the derivative",
+			"page":"derivative/index.html",
+			"img":"derivative.jpeg"
 		}
+		
 	]
 }

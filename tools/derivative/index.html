@@ -15,18 +15,33 @@
 <body>
 	<s-navbar></s-navbar>
 	<br><br><br><br><br><br>
-	<div class="circle-loader" style="margin:0 auto;"></div>
 	<div class="container" id="main-container">
-		<h2 class="text-align-center"> Calculate the value of an algebraic expression </h2>
-		<div style="display:flex;justify-content: center;">
-			<input id="expr" type="text" class="form-input" style="width: 80%;" placeholder="Type expression">
-		</div><br>
-		<h3 class="text-align-center">Expression</h3>
-		<div id="pretty" style="display:flex; justify-content: center;"></div><br>
-		<h3 class="text-align-center">Results</h3>
-		<div id="result" style="display:flex;justify-content: center;">
+		<h2 class=""> Calculate the derivative </h2>
+		<br>
+		<div style=" max-width: 650px;">
+			<div class="field">
+				<label for="" class="form-label ">Expression</label>
+				<input type="text" class="form-input" id="expr" placeholder="Enter an expression">
+			</div>
 
+			<div class="field">
+				<label for="" class="form-label ">Variable</label>
+				<input type="text" class="form-input" id="variable" placeholder="Enter a variable name (Ex : x , y, ...)">
+			</div>
+
+			<div class="field">
+				<label for="" class="form-label ">Choosing the degree of the derivative</label>
+				<input type="text" class="form-input" id="degree" placeholder="Enter a variable name (Ex : x , y, ...)">
+			</div>
 		</div>
+		<div class="ml-25">
+			<h3 class="">Expression</h3>
+			<div id="pretty"></div><br>
+			<h3>Results</h3>
+			<div id="result">
+			</div>
+		</div>
+
 	</div>
 	<script src="https://polyfill.io/v3/polyfill.min.js?features=es6" defer></script>
 	<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
