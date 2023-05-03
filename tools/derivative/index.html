@@ -19,34 +19,32 @@
 		<h2 class=""> Calculate the derivative </h2>
 		<br>
 		<div style=" max-width: 650px;">
+
+			<br><br>
 			<div class="field">
-				<label for="" class="form-label ">Expression</label>
+				<label for="" class="form-label ">Input Expression</label>
 				<input type="text" class="form-input" id="expr" placeholder="Enter an expression">
 			</div>
 
 			<div class="field">
 				<label for="" class="form-label ">Variable</label>
-				<input type="text" class="form-input" id="variable" placeholder="Enter a variable name (Ex : x , y, ...)">
+				<input type="text" class="form-input" id="variable" placeholder="Enter a variable name (Ex : x , y, ...)" value="x">
 			</div>
 
-			<div class="field">
-				<label for="" class="form-label ">Choosing the degree of the derivative</label>
-				<input type="text" class="form-input" id="degree" placeholder="Enter a variable name (Ex : x , y, ...)">
-			</div>
 		</div>
 		<div class="ml-25">
-			<h3 class="">Expression</h3>
-			<div id="pretty"></div><br>
+			<div>
+				<h3>Input Expression</h3>
+				<div id="pretty" style="max-width:90%;overflow-y: none; overflow-x: scroll;"></div>
+			</div>
 			<h3>Results</h3>
-			<div id="result">
+			<div id="result" style="max-width:90%;overflow-y: none; overflow-x: scroll;">
 			</div>
 		</div>
-
 	</div>
 	<script src="https://polyfill.io/v3/polyfill.min.js?features=es6" defer></script>
 	<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
-	<script src="../../scripts/Lib/nerdamer/all.min.js" defer></script>
-
+	<script src="../../scripts/Lib/mathjs/math.js" dè></script>
 	<script src="../../scripts/core.js"></script>
 	<script src="./main.js"></script>
 

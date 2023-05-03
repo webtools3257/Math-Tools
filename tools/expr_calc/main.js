@@ -1,39 +1,32 @@
 const expr = document.getElementById('expr')
-const pretty = document.getElementById('pretty')
 const result = document.getElementById('result')
 let parenthesis = 'keep'
 let implicit = 'hide'
 
-const mj = function(tex) {
-	return MathJax.tex2svg(tex, { em: 16, ex: 6, display: false });
-}
-
 expr.style.boxShadow = "none"
 expr.style.borderWidth = "1px"
 
-function calc() {
+async function calc() {
 	try {
-		let e = nerdamer(expr.value);
-		let latex = nerdamer.convertToLaTeX(expr.value)
-		let res_val = nerdamer.convertToLaTeX(e.evaluate().toString())
-		MathJax.typesetClear();
-
-		expr.style.borderColor = "var(--success-color)"
-		pretty.innerHTML = '';
-		pretty.appendChild(mj(latex));
-		result.innerHTML = '';
-		result.appendChild(mj(res_val));
+		let e = math.simplify(expr.value, {}, { exactFractions: true })
+		return e
 	}
 	catch (err) {
-		expr.style.borderColor = "red"
-		pretty.innerHTML = '#Error';
-		result.innerHTML = '#Error';
+		throw err
 	}
 
 }
 expr.oninput = function() {
-	pretty.innerHTML = `<div class="circle-loader" style="margin:0 auto;"></div>`;
 	result.innerHTML = `<div class="circle-loader" style="margin:0 auto;"></div>`;
-
 	calc()
+		.then((res) => {
+			expr.parentElement.classList.add("form-success")
+			expr.parentElement.classList.remove("form-invaild")
+			displayMathExpression(result, res.toString())
+		})
+		.catch((err) => {
+			expr.parentElement.classList.remove("form-success")
+			expr.parentElement.classList.add("form-invaild")
+			result.innerHTML = '#Error';
+		})
 }

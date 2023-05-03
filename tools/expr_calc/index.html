@@ -17,21 +17,18 @@
 	<s-navbar></s-navbar>
 	<br><br><br><br><br><br>
 	<div class="container" id="main-container">
-		<h2 class="text-align-center"> Calculate the value of an algebraic expression </h2>
-		<div style="display:flex;justify-content: center;">
-			<input id="expr" type="text" class="form-input" style="width: 80%;" placeholder="Type expression">
+		<h2> Calculate the value of an algebraic expression </h2>
+		<div class="field" style="max-width: 650px;">
+			<input id="expr" type="text" class="form-input" style=" " placeholder="Type expression">
 		</div><br>
-		<h3 class="text-align-center">Expression</h3>
-		<div id="pretty" style="display:flex; justify-content: center;"></div><br>
-		<h3 class="text-align-center">Results</h3>
-		<div id="result" style="display:flex;justify-content: center;">
+		<h3 class="ml-5">Results</h3>
+		<div id="result" class="ml-5">
 
 		</div>
 	</div>
 	<script src="https://polyfill.io/v3/polyfill.min.js?features=es6" defer></script>
 	<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
-	<script src="../../scripts/Lib/nerdamer/all.min.js" defer></script>
-
+	<script src="../../scripts/Lib/mathjs/math.js" defer></script>
 	<script src="../../scripts/core.js"></script>
 	<script src="./main.js"></script>
 
