@@ -1,6 +1,7 @@
 const expr = document.getElementById('expr')
 const pretty = document.getElementById("pretty")
 const variable = document.getElementById('variable')
+const btn = document.getElementById("btn-solve")
 const result = document.getElementById('result')
 let parenthesis = 'keep'
 let implicit = 'hide'
@@ -12,10 +13,9 @@ async function calc() {
 	} catch (e) {
 		throw e
 	}
-
 }
 
-expr.oninput = function() {
+btn.onclick = function() {
 	result.innerHTML = `<div class="circle-loader" style="margin:0 auto;"></div>`;
 	calc()
 		.then((res) => {
@@ -28,21 +28,7 @@ expr.oninput = function() {
 			expr.parentElement.classList.add("form-invaild")
 			expr.parentElement.classList.remove("form-success")
 			result.innerHTML = '#Error';
+			pretty.innerHTML ="#Error"
 		})
 }
 
-variable.oninput = function() {
-	result.innerHTML = `<div class="circle-loader" style="margin:0 auto;"></div>`;
-	calc()
-		.then((res) => {
-			expr.parentElement.classList.remove("form-invaild")
-			expr.parentElement.classList.add("form-success")
-			displayMathExpression(pretty, expr.value)
-			displayMathExpression(result, res.toString())
-		})
-		.catch(err => {
-			expr.parentElement.classList.add("form-invaild")
-			expr.parentElement.classList.remove("form-success")
-			result.innerHTML = '#Error';
-		})
-}

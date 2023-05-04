@@ -1,4 +1,6 @@
 const expr = document.getElementById('expr')
+const btn = document.getElementById("btn-solve")
+const pretty = document.getElementById("pretty")
 const result = document.getElementById('result')
 let parenthesis = 'keep'
 let implicit = 'hide'
@@ -16,17 +18,19 @@ async function calc() {
 	}
 
 }
-expr.oninput = function() {
+btn.onclick = function() {
 	result.innerHTML = `<div class="circle-loader" style="margin:0 auto;"></div>`;
 	calc()
 		.then((res) => {
 			expr.parentElement.classList.add("form-success")
 			expr.parentElement.classList.remove("form-invaild")
+			displayMathExpression(pretty, `${expr.value}`)
 			displayMathExpression(result, res.toString())
 		})
 		.catch((err) => {
 			expr.parentElement.classList.remove("form-success")
 			expr.parentElement.classList.add("form-invaild")
 			result.innerHTML = '#Error';
+			pretty.innerHTML ="#Error"
 		})
 }
