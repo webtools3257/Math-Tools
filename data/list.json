@@ -2,13 +2,11 @@
 	"list":[
 		{
 			"name":"Calculate the value of the algebraic expression",
-			"page":"expr_calc/index.html",
-			"img":"expr_calc.jpeg"
+			"link":"expr_calc"
 		},
 		{
 			"name":"Calculate the derivative",
-			"page":"derivative/index.html",
-			"img":"derivative.jpg"
+			"link":"derivative"
 		}
 		
 	]
