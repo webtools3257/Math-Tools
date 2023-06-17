@@ -1,8 +1,6 @@
 let mj = null
 
 function derivative(expr,variable){
-	const h = math.parse(expr)
-	const x = math.parse(variable)
 	const dh = math.derivative(h, x)
 	return dh
 }
