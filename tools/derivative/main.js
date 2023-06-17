@@ -1,5 +1,11 @@
 let mj = null
 
+function addScript(path){
+	let scriptTag = document.createElement("script")
+	scriptTag.src = path
+	document.body.appendChild(scriptTag)
+}
+
 function parseExpr(expr) {
 	try {
 		let node = math.parse(expr.value)
@@ -42,14 +48,13 @@ window.Turtle.createComponent("tool-display", {
 	},
 	onRender: function() {
 		let expr = this.ref("expr").val
-
 	}
-
 })
+
 export async function initTool(arg) {
-	await import("https://unpkg.com/mathjs@11.8.1/lib/esm/index.js")
-	await import("https://polyfill.io/v3/polyfill.min.js?features=es6")
-	await import("https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js")
+	addScript("https://unpkg.com/mathjs@11.8.1/lib/browser/math.js")
+	addScript("https://polyfill.io/v3/polyfill.min.js?features=es6")
+	addScript("https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js")
 	mj = function(tex) {
 		return MathJax.tex2svg(tex, { em: 16, ex: 6, display: false });
 	}
