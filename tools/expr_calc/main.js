@@ -1,3 +1,3 @@
-async function initTool(arg) {
+export async function initTool(arg) {
 	
 }
