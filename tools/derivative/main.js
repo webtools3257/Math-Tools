@@ -29,9 +29,7 @@ function evalExpr(element, node) {
 function toLatex(element, node) {
 	try {
 		let latex = '' 
-		if(node){
-			latex = node.toTex({})
-		}
+		latex = node.toTex({})
 		MathJax.typesetClear();
 		element.element.innerHTML = '';
 		element.element.appendChild(mj(latex));
