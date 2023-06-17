@@ -47,7 +47,7 @@ window.Turtle.createComponent("tool-display", {
 
 })
 export async function initTool(arg) {
-	await import("https://unpkg.com/mathjs@11.8.1/lib/browser/math.js")
+	await import("https://unpkg.com/mathjs@11.8.1/lib/esm/index.js")
 	await import("https://polyfill.io/v3/polyfill.min.js?features=es6")
 	await import("https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js")
 	mj = function(tex) {
