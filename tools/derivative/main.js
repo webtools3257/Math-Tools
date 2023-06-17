@@ -5,12 +5,6 @@ function derivative(expr,variable){
 	return d 
 }
 
-function addScript(path){
-	let scriptTag = document.createElement("script")
-	scriptTag.src = path
-	document.body.appendChild(scriptTag)
-}
-
 function parseExpr(expr) {
 	try {
 		let node = math.parse(expr.value)
@@ -71,3 +65,5 @@ export async function initTool(arg) {
 		return MathJax.tex2svg(tex, { em: 16, ex: 6, display: false });
 	}
 }
+
+initTool()
