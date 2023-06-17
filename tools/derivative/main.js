@@ -1,7 +1,7 @@
 let mj = null
 
 function derivative(expr,variable){
-	const d = math.derivative(expr, x)
+	const d = math.derivative(expr, variable)
 	return d 
 }
 
