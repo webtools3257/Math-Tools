@@ -33,7 +33,8 @@ function toLatex(element, node) {
 		element.element.innerHTML = '';
 		element.element.appendChild(mj(latex));
 	}
-	catch (err) {}
+	catch (err) {
+	}
 }
 
 window.Turtle.createComponent("tool-display", {
@@ -59,7 +60,7 @@ window.Turtle.createComponent("tool-display", {
 		let ctx = this
 		this.ref("calc").on("click",function(){
 			let r = derivative(expr,"x")
-			toLatex(ctx.ref("result").element,r)
+			toLatex(ctx.ref("result"),r)
 		})
 	}
 })
