@@ -56,7 +56,7 @@ window.Turtle.createComponent("tool-display", {
 	onRender: function() {
 		let ctx = this
 		this.ref("calc").on("click",function(){
-			let expr = this.ref("expr").val
+			let expr = ctx.ref("expr").val
 			let r = derivative(expr,"x")
 			toLatex(ctx.ref("result"),r)
 		})
