@@ -1,5 +1,4 @@
 let mj = null
-
 function derivative(expr,variable){
 	const d = math.derivative(expr, variable)
 	return d 
@@ -57,7 +56,7 @@ window.Turtle.createComponent("tool-display", {
 	}
 })
 
-export async function initTool(arg) {
+async function initTool(arg) {
 	addScript("https://unpkg.com/mathjs@11.8.1/lib/browser/math.js")
 	addScript("https://polyfill.io/v3/polyfill.min.js?features=es6")
 	addScript("https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js")
