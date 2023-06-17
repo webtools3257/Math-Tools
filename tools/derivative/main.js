@@ -1,5 +1,12 @@
 let mj = null
 
+function derivative(expr,variable){
+	const h = math.parse(expr)
+	const x = math.parse(variable)
+	const dh = math.derivative(h, x)
+	return dh
+}
+
 function addScript(path){
 	let scriptTag = document.createElement("script")
 	scriptTag.src = path
@@ -38,6 +45,7 @@ window.Turtle.createComponent("tool-display", {
 					<label class="form-label">Input expression</label>
 					<input ref="expr" class="form-input" style="min-width: 250px; width: 90%;">
 				</div>
+				<button ref="calc" class="btn btn-success">Calc</button>
 				<br>
 				<div>
 					<h3>Result</h3>
@@ -48,6 +56,10 @@ window.Turtle.createComponent("tool-display", {
 	},
 	onRender: function() {
 		let expr = this.ref("expr").val
+		this.ref("calc").on("click",function(){
+			let r = derivative(expr,"x")
+			toLatex(this.ref("result").element,r)
+		})
 	}
 })
 
