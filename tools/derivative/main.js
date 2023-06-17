@@ -1,8 +1,8 @@
 let mj = null
 
 function derivative(expr,variable){
-	const dh = math.derivative(h, x)
-	return dh
+	const d = math.derivative(expr, x)
+	return d 
 }
 
 function addScript(path){
