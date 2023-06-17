@@ -28,13 +28,15 @@ function evalExpr(element, node) {
 
 function toLatex(element, node) {
 	try {
-		const latex = node ? node.toTex({}) : ''
+		let latex = '' 
+		if(node){
+			latex = node.toTex({})
+		}
 		MathJax.typesetClear();
 		element.element.innerHTML = '';
 		element.element.appendChild(mj(latex));
 	}
-	catch (err) {
-	}
+	catch (err) {}
 }
 
 window.Turtle.createComponent("tool-display", {
