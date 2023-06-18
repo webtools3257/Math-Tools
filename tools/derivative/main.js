@@ -36,7 +36,7 @@ window.Turtle.createComponent("tool-display", {
 				<h1>Calculate the derivative</h1>
 				<div class="field">
 					<label class="form-label">Input expression</label>
-					<input ref="expr" type="text"  class="form-input" style="min-width: 250px; width: 90%;">
+					<input ref="expr" type="text"  class="form-input" style="min-width: 250px; width: 90%;"><br>
 					<label class="form-label">Varibale</label>
 					<input ref="var" type="text"  class="form-input" style="min-width: 250px; width: 90%;" value="x" >
 				</div>
