@@ -1,7 +1,8 @@
 let mj = null
-function derivative(expr,variable){
+
+function derivative(expr, variable) {
 	const d = math.derivative(expr, variable)
-	return d 
+	return d
 }
 
 function parseExpr(expr) {
@@ -19,7 +20,7 @@ function evalExpr(element, node) {
 
 function toLatex(element, node) {
 	try {
-		let latex = '' 
+		let latex = ''
 		latex = node.toTex({})
 		MathJax.typesetClear();
 		element.HTML = '';
@@ -36,18 +37,15 @@ window.Turtle.createComponent("tool-display", {
 				<div class="field">
 					<label class="form-label">Input expression</label>
 					<input ref="expr" type="text"  class="form-input" style="min-width: 250px; width: 90%;">
+					<label class="form-label">Varibale</label>
+					<input ref="var" type="text"  class="form-input" style="min-width: 250px; width: 90%;" value="x" >
 				</div>
 				<button ref="calc" class="btn btn-success">Calc</button>
 				<br>
 				<div>
 					<h3>Result</h3>
 					<span ref="result" class="p-10">
-						<div class="dot-loader">
-							<span></span>
-							<span></span>
-							<span></span>
-							<span></span>
-						</div>
+						- - -
 					</span>
 				</div>
 			</div>
@@ -55,18 +53,19 @@ window.Turtle.createComponent("tool-display", {
 	},
 	onRender: function() {
 		let ctx = this
-		this.ref("result").HTML=`
-			<div class="dot-loader">
-				<span></span>
-				<span></span>
-				<span></span>
-				<span></span>
-			</div>
-		`
-		this.ref("calc").on("click",function(){
+		this.ref("calc").on("click", function() {
+			this.ref("result").HTML = `
+				<div class="dot-loader">
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+				</div>
+			`
 			let expr = ctx.ref("expr").val
-			let r = derivative(expr,"x")
-			toLatex(ctx.ref("result"),r)
+			let variable = ctx.ref("var").val
+			let r = derivative(expr, variable)
+			toLatex(ctx.ref("result"), r)
 		})
 	}
 })
