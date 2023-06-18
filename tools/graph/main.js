@@ -6,6 +6,7 @@ function draw(expr,start = -10 ,stop=10,step=0.5) {
 	functionPlot({
 		target: '#plot',
 		data: [{
+			sampler: 'builtIn',
 			fn: r_expr
 	  }]
 	})
@@ -54,6 +55,13 @@ window.Turtle.createComponent("tool-display", {
 					</span>
 				</div>
 				<br>
+				<style>
+					.function-plot {
+						background: white;
+						color:black;
+						width: 100%;
+					}
+				</style>
 				<div id="plot" style="max-width:98%;color:black; background:white;" ></div>
 			</div>
 		`
@@ -71,7 +79,7 @@ window.Turtle.createComponent("tool-display", {
 			`
 			let expr = ctx.ref("expr").val
 			let r = draw(expr)
-			toLatex(ctx.ref("func"), r)
+			toLatex(ctx.ref("func"), parseExpr(expr))
 		})
 	}
 })
