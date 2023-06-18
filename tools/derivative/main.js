@@ -54,7 +54,7 @@ window.Turtle.createComponent("tool-display", {
 	onRender: function() {
 		let ctx = this
 		this.ref("calc").on("click", function() {
-			this.ref("result").HTML = `
+			ctx.ref("result").HTML = `
 				<div class="dot-loader">
 					<span></span>
 					<span></span>
