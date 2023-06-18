@@ -22,7 +22,7 @@ function toLatex(element, node) {
 		let latex = '' 
 		latex = node.toTex({})
 		MathJax.typesetClear();
-		element.element.innerHTML = '';
+		element.HTML = '';
 		element.element.appendChild(mj(latex));
 	}
 	catch (err) {}
@@ -41,13 +41,28 @@ window.Turtle.createComponent("tool-display", {
 				<br>
 				<div>
 					<h3>Result</h3>
-					<span ref="result">---</span>
+					<span ref="result" class="p-10">
+						<div class="dot-loader">
+							<span></span>
+							<span></span>
+							<span></span>
+							<span></span>
+						</div>
+					</span>
 				</div>
 			</div>
 		`
 	},
 	onRender: function() {
 		let ctx = this
+		this.ref("result").HTML=`
+			<div class="dot-loader">
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+			</div>
+		`
 		this.ref("calc").on("click",function(){
 			let expr = ctx.ref("expr").val
 			let r = derivative(expr,"x")
