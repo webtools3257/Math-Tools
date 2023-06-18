@@ -1,7 +1,7 @@
 let mj = null
 
 function calc(expr) {
-	const result = math.simplify(expr,)
+	const result = math.simplify(expr)
 	return result
 }
 

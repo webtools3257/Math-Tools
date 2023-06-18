@@ -7,7 +7,8 @@ function draw(expr,start = -10 ,stop=10,step=0.5) {
 		target: '#plot',
 		data: [{
 			sampler: 'builtIn',
-			fn: r_expr
+			fn: r_expr,
+			color:"blue"
 	  }]
 	})
 	return expr
