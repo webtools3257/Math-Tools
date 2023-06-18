@@ -54,7 +54,7 @@ window.Turtle.createComponent("tool-display", {
 					</span>
 				</div>
 				<br>
-				<div id="plot" style="min-width:98%;color:black; background:white;" ></div>
+				<div id="plot" style="max-width:98%;color:black; background:white;" ></div>
 			</div>
 		`
 	},
