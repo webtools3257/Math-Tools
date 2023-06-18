@@ -1,19 +1,14 @@
 let mj = null
 
 function draw(expr,start = -10 ,stop=10,step=0.5) {
+	let r_expr = expr
 	expr = math.compile(expr)
-	const xValues = math.range(start, stop, step).toArray()
-	const yValues = xValues.map(function(x) {
-		return expr.evaluate({ x: x })
+	functionPlot({
+		target: '#plot',
+		data: [{
+			fn: r_expr
+	  }]
 	})
-	
-	const trace1 = {
-		x: xValues,
-		y: yValues,
-		type: 'scatter'
-	}
-	const data = [trace1]
-	Plotly.newPlot('plot', data)
 	return expr
 }
 
@@ -82,7 +77,7 @@ window.Turtle.createComponent("tool-display", {
 })
 
 async function initTool(arg) {
-	addScript("https://cdn.plot.ly/plotly-1.35.2.min.js")
+	addScript("https://unpkg.com/function-plot/dist/function-plot.js")
 	addScript("https://unpkg.com/mathjs@11.8.1/lib/browser/math.js")
 	addScript("https://polyfill.io/v3/polyfill.min.js?features=es6")
 	addScript("https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js")
