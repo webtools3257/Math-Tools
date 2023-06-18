@@ -8,7 +8,8 @@ function draw(expr,start = -10 ,stop=10,step=0.5) {
 		data: [{
 			sampler: 'builtIn',
 			fn: r_expr,
-			color:"blue"
+			color:"blue",
+			graphType: 'polyline'
 	  }]
 	})
 	return expr
